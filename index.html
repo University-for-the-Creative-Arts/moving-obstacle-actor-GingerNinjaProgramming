@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<style>
+    body {
+        background-color: #111;
+        color: #eee;
+        font-family: sans-serif;
+        padding: 2rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    h1, h2, h3 {
+        color: #66ccff;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        max-width: 800px;
+        margin: 0.5rem auto;
+        text-align: left;
+    }
+
+    ul, ol {
+        max-width: 9600px;
+        margin: 1rem auto;
+        text-align: left;
+        display: table;
+    }
+
+    table {
+        margin: 2rem auto;
+        border-collapse: collapse;
+        width: auto;
+        max-width: 90%;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #555;
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    video, 
+    img {
+        width: 90%;
+        max-width: 960px;
+        display: block;
+        margin: 1rem auto;
+        border-radius: 8px;
+    }
+
+    iframe {
+        width: 90%;
+        max-width: 960px;
+        height: 500px;
+        display: block;
+        margin: 2rem auto;
+        border: none;
+        border-radius: 6px;
+    }
+
+    iframe.itch-widget {
+        height: 167px !important;
+        max-width: 960px;
+        width: 90%;
+        border-radius: 6px;
+    }
+
+    iframe.youtube-embed {
+        width: 90%;
+        max-width: 960px;
+        height: 540px;
+        display: block;
+        margin: 2rem auto;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+        color: #66ccff;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    pre {
+        background-color: #1e1e1e;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 6px;
+        text-align: left;
+        max-width: 900px;
+        overflow-x: auto;
+        margin: 1rem auto;
+        display: block;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    }
+
+    code {
+        background-color: #2a2a2a;
+        color: #ffecb3;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.95em;
+        white-space: pre-wrap;
+    }
+
+</style>
+<h1 id="github-pages-template">GitHub Pages Template</h1>
+<p>This document presents a sample GitHub Pages layout that includes rich media such as:</p>
+<ul>
+<li>GIFs, Images &amp; Videos</li>
+<li><code>iframe</code> content from <a href="https://www.youtube.com/">YouTube</a> , <a href="https://itch.io/">itch.io</a> and <a href="https://blueprintue.com/">blueprintue</a></li>
+</ul>
+<p>You can use this format to showcase games, prototypes, technical demos, or creative projects.</p>
+<p>Please refer to the media and tables below as examples of how to present your work clearly and effectively.</p>
+<hr>
+<h2 id="markdown-to-html-md-%E2%86%92-html">Markdown to HTML (<code>.md</code> → <code>.html</code>)</h2>
+<p>Once your <a href="index.md"><code>index.md</code></a> file is complete, you can convert it into a <code>.html</code> file using <a href="https://code.visualstudio.com/">VS Code</a> and the <a href="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf">Markdown PDF</a> extension:</p>
+<ol>
+<li>Install <strong>Markdown PDF</strong> from the Extensions panel.</li>
+<li>Open <code>index.md</code>.</li>
+<li>Press <code>Ctrl + Shift + P</code> → Select <strong>Markdown PDF: Export (html)</strong>.</li>
+<li>Commit the generated <code>index.html</code> file for use with GitHub Pages.</li>
+</ol>
+<hr>
+<h2 id="hosting-via-github-pages">Hosting via GitHub Pages</h2>
+<iframe class="youtube-embed" src="https://www.youtube.com/embed/5XhxR9Vs6zc?si=ROTLf2RMwouvSjq2" allowfullscreen></iframe>
+<h3 id="quick-hosting">Quick Hosting</h3>
+<ol>
+<li>
+<p>Go to your repository on GitHub.</p>
+</li>
+<li>
+<p>Click the <strong>Settings</strong> tab.</p>
+</li>
+<li>
+<p>In the left menu, select <strong>Pages</strong> (under <strong>Code and automation</strong>).</p>
+</li>
+<li>
+<p>Under <strong>Build and deployment</strong>:</p>
+<ul>
+<li>Set <strong>Source</strong> to <code>Deploy from a branch</code>.</li>
+<li>Set <strong>Branch</strong> to <code>main</code>.</li>
+<li>Set <strong>Folder</strong> to <code>/ (root)</code> (or <code>/docs</code> if your content is in the <code>docs/</code> folder).</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>GitHub will generate a public URL (e.g.
+<code>https://your-username.github.io/your-repo-name/</code>) at the top of the page.</p>
+</li>
+</ol>
+<blockquote>
+<p>Your site may take a minute or two to go live. Reload the link if you see a 404 error initially.</p>
+</blockquote>
+<hr>
+<h2 id="example-gif">Example GIF</h2>
+<p><img src="assets/demo.gif" alt=""></p>
+<p><em>Figure 1. <code>demo.gif</code>, an example animated snippet showing system behaviour.</em></p>
+<p>GIFs are ideal for demonstrating short sequences, like UI transitions, animation loops, or gameplay snippets. Keep GIFs short and under 10MB where possible.</p>
+<hr>
+<h2 id="demo-video">Demo Video</h2>
+<video controls>
+  <source src="assets/demo.mp4" type="video/mp4">
+</video>
+<p><em>Figure 2. <code>demo.mp4</code>, a short embedded video demonstration.</em></p>
+<p>Videos are useful for showing interactions, effects, or walkthroughs. Use screen capture tools to create <code>.mp4</code> recordings of your project and embed them locally using the <code>&lt;video&gt;</code> tag.</p>
+<hr>
+<h2 id="blueprint-example">Blueprint Example</h2>
+<iframe src="https://blueprintue.com/render/_wo11g40/" allowfullscreen></iframe>
+<p><em>Figure 3. BlueprintUE embed — useful for sharing Unreal Engine logic visually.</em></p>
+<p>BlueprintUE is a powerful way to share and discuss Blueprint graphs in a readable format. Ideal for sharing logic behind player controls, mechanics, or UI interaction.</p>
+<hr>
+<h2 id="itchio-widget">Itch.io Widget</h2>
+<iframe class="itch-widget" src="https://itch.io/embed/3456580" frameborder="0">
+  <a href="https://simex.itch.io/hollowspire">Hollowspire by Simex, anstabo</a>
+</iframe>
+<p><em>Figure 4. Itch.io widget embed — link to downloadable or web-based projects.</em></p>
+<p>Use the Itch.io embed widget to allow others to play or download your game directly from your submission. This is useful for deployed games or interactive tools.</p>
+<hr>
+<h2 id="youtube-embed">YouTube Embed</h2>
+<iframe class="youtube-embed" src="https://www.youtube.com/embed/XwYX2GLu6bU?si=AhM8-7fZvgBTXNOI" allowfullscreen></iframe>
+<p><em>Figure 5. YouTube video — for trailers, walkthroughs, or demonstrations.</em></p>
+<p>If your video is hosted externally (e.g. YouTube), you can embed it directly using the iframe tag. This is especially useful for longer-form content or commentary.</p>
+<hr>
+<h2 id="code-snippet">Code Snippet</h2>
+<pre class="hljs"><code><div><span class="hljs-comment"># Example: clone and run</span>
+git <span class="hljs-built_in">clone</span> https://github.com/yourusername/your-project-name
+<span class="hljs-built_in">cd</span> your-project-name
+open index.html
+</div></code></pre>
+<p><em>Figure 6. hello-world.cpp — for your... code...</em></p>
+<hr>
+<h2 id="feature-summary">Feature Summary</h2>
+<p>Use a table to summarise what your project contains:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Implemented</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core Mechanic</td>
+<td>✅ Yes</td>
+<td>Demonstrated via GIF/video</td>
+</tr>
+<tr>
+<td>UI/UX Functionality</td>
+<td>✅ Yes</td>
+<td>Simple HUD layout shown</td>
+</tr>
+<tr>
+<td>Sound Implementation</td>
+<td>🔶 Partial</td>
+<td>Minimal SFX &amp; Music, no settings</td>
+</tr>
+<tr>
+<td>Save/Load System</td>
+<td>❌ No</td>
+<td>Not required for this prototype</td>
+</tr>
+<tr>
+<td>Gamepad Support</td>
+<td>✅ Yes</td>
+<td>Tested with Xbox controller</td>
+</tr>
+</tbody>
+</table>
+<p><em>Figure 7. table example — use tables to show case data, features, etc</em></p>
+
+</body>
+</html>
