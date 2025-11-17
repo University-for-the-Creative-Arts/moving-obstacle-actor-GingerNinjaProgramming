@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/Blueprints/BP_MoveFollow.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/Blueprints/BP_MoveUp.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/Blueprints/BP_MoveRand.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/3/ZW/MQK1F8K7VG3IIFI7CAJ8EK.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/0/YF/QWX0V0JKC54R52ASGXYGK8.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/1/DW/6WCWW32ZYURPTC0J39KTP6.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/4/Z1/SIJ3C9T3SPM80WFZUXJZOV.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/F/0W/KRGGLPEVSI8L9WOOJBBWKO.uasset",
+				"C:/Users/2500411/Documents/GitHub/collectable-actor-GingerNinjaProgramming/MovingObj/Content/FirstPerson/Lvl_FirstPerson.umap"
+			]
+		}
+	]
+}
